@@ -3,12 +3,17 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
+        UseLinkedLists();
+    }
+
+    private static void UseLinkedLists(){
         Employee jane = new Employee("Jane", "Jones", 123);
         Employee john = new Employee("John", "Doe", 4567);
         Employee mary = new Employee("Mary", "Smith", 22);
         Employee mike = new Employee("Mike", "Wilson", 3245);
 
-        EmployeeLinkedList list = new EmployeeLinkedList();
+        // EmployeeLinkedList list = new EmployeeLinkedList();
+        EmployeeDoublyLinkedList list = new EmployeeDoublyLinkedList();
         System.out.println("Is this list empty? " + list.isEmpty());
         list.addToFront(jane);
         list.addToFront(john);
@@ -18,9 +23,28 @@ public class Main {
         System.out.println("Size: " + list.getSize());
         list.printList();
 
+        Employee billEnd = new Employee("Bill", "End", 78);
+        list.addToEnd(billEnd);
+        System.out.println("Size: " + list.getSize());
+        list.printList();
+
         list.removeFromFront();
         System.out.println("Size: " + list.getSize());
         list.printList();
+
+        list.removeFromEnd();
+        System.out.println("Size: " + list.getSize());
+        list.printList();
+
+        EmployeeNode nodeToAdd = new EmployeeNode(new Employee("James", "Bond", 007));
+        EmployeeNode existingNode = list.head.getNext().getNext();
+        list.addBefore(nodeToAdd, existingNode);
+
+        System.out.println("Size: " + list.getSize());
+        list.printList();
+        /*list.removeFromFront();
+        System.out.println("Size: " + list.getSize());
+        list.printList();*/
     }
 
     private static void UseSorters(){

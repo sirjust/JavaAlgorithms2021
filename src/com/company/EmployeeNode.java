@@ -1,9 +1,19 @@
 package com.company;
 
 public class EmployeeNode {
-    private Employee employee;
-    private EmployeeNode next;
+    protected Employee employee;
+    protected EmployeeNode next;
+    private EmployeeNode previous;
 
+    public EmployeeNode getPrevious() {
+        return previous;
+    }
+
+    public void setPrevious(EmployeeNode previous) {
+        this.previous = previous;
+    }
+
+    public EmployeeNode() {}
     public EmployeeNode(Employee employee){
         this.employee = employee;
     }

@@ -1,8 +1,8 @@
 package com.company;
 
 public class EmployeeLinkedList {
-    private EmployeeNode head;
-    private int size;
+    protected EmployeeNode head;
+    protected int size;
 
     public void addToFront(Employee employee){
         EmployeeNode node = new EmployeeNode(employee);
