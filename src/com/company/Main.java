@@ -3,10 +3,22 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        UseLinkedLists();
+        // useSorters();
+        // useLinkedLists();
+        insertLinkedListSorted();
     }
 
-    private static void UseLinkedLists(){
+    private static void insertLinkedListSorted(){
+        IntegerLinkedList list = new IntegerLinkedList();
+        list.insertSorted(4);
+        list.insertSorted(2);
+        list.insertSorted(1);
+        list.insertSorted(5);
+
+        list.printList();
+    }
+
+    private static void useLinkedLists(){
         Employee jane = new Employee("Jane", "Jones", 123);
         Employee john = new Employee("John", "Doe", 4567);
         Employee mary = new Employee("Mary", "Smith", 22);
@@ -36,10 +48,13 @@ public class Main {
         System.out.println("Size: " + list.getSize());
         list.printList();
 
-        EmployeeNode nodeToAdd = new EmployeeNode(new Employee("James", "Bond", 007));
-        EmployeeNode existingNode = list.head.getNext().getNext();
-        list.addBefore(nodeToAdd, existingNode);
+        Employee newEmployee = new Employee("James", "Bond", 007);
+        // EmployeeNode nodeToAdd = new EmployeeNode(newEmployee);
+        // EmployeeNode existingNode = list.head.getNext().getNext();
+        // list.addBefore(nodeToAdd, existingNode);
 
+        list.addBeforeInstructor(newEmployee, john);
+        list.addBeforeInstructor(new Employee("Mark", "Newton", 505), mary);
         System.out.println("Size: " + list.getSize());
         list.printList();
         /*list.removeFromFront();
@@ -47,7 +62,7 @@ public class Main {
         list.printList();*/
     }
 
-    private static void UseSorters(){
+    private static void useSorters(){
         //test();
         int[] array = new int[] {20, 35, -15, 7, 55, 1, -22};
         BubbleSorter sorter = new BubbleSorter();

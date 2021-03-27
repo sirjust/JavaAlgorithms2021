@@ -73,8 +73,9 @@ public class EmployeeDoublyLinkedList {
         return removedNode;
     }
 
+    // This is my implementation
     public void addBefore(EmployeeNode nodeToAdd, EmployeeNode existingNode){
-        if(nodeToAdd == null || existingNode == null) return;
+        if(nodeToAdd == null || existingNode == null || head == null) return;
         if(existingNode.getPrevious() == null){
             nodeToAdd = head;
         }
@@ -85,6 +86,34 @@ public class EmployeeDoublyLinkedList {
         existingNode.setPrevious(nodeToAdd);
         nodeToAdd.setNext(existingNode);
         size++;
+    }
+
+    // This is the instructor's implementation
+    public boolean addBeforeInstructor(Employee newEmployee, Employee existingEmployee){
+        if(head == null) return false;
+
+        // find the existing employee
+        EmployeeNode current = head;
+        while(current != null && !current.getEmployee().equals(existingEmployee)){
+            current = current.getNext();
+        }
+        if (current == null){
+            return false;
+        }
+
+        EmployeeNode newNode = new EmployeeNode(newEmployee);
+        newNode.setPrevious(current.getPrevious());
+        newNode.setNext(current);
+        current.setPrevious(newNode);
+
+        if(current == head){
+            head = newNode;
+        }
+        else{
+            newNode.getPrevious().setNext(newNode);
+        }
+        size++;
+        return true;
     }
 
     public void printList(){
