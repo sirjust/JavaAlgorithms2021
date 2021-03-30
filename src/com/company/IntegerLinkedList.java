@@ -41,28 +41,64 @@ public class IntegerLinkedList {
     }
 
     public void insertSorted(int data){
-        IntegerNode newNode = new IntegerNode(data);
-        if(isEmpty()) {
-            head = newNode;
+        if(head == null || head.getData() >= data){
+            addToFront(data);
             return;
         }
 
-        IntegerNode current = head;
-        while(current != null){
-            if(newNode.getData() < current.getData()){
-                if(head == current) {
-                    head = newNode;
-                    newNode.setNext(current);
-                    break;
-                }
-            }
-            else if(current.getNext() == null){
-                    current.setNext(newNode);
-                    break;
-                }
-            else{
-                current = current.getNext();
-            }
+        // find the insertion point
+        IntegerNode current = head.getNext();
+        IntegerNode previous = head;
+
+        while (current != null && current.getData() < data){
+            previous = current;
+            current = current.getNext();
         }
+        IntegerNode newNode = new IntegerNode(data);
+        newNode.setNext(current);
+        previous.setNext(newNode);
+        size++;
+    }
+
+    public void testInsertSorted(int value){
+        if(head == null || head.getData() >= value){
+            addToFront(value);
+            return;
+        }
+
+        // find the insertion point
+        IntegerNode current = head.getNext();
+        IntegerNode previous = head;
+
+        while(current != null && current.getData() < value){
+            previous = current;
+            current = current.getNext();
+        }
+
+        IntegerNode newNode = new IntegerNode(value);
+        newNode.setNext(current);
+        previous.setNext(newNode);
+        size++;
+    }
+
+    public void insertSortedInstructor(int value){
+        // assumption: the list is already sorted
+
+        if(head == null || head.getData() >= value){
+            addToFront(value);
+            return;
+        }
+
+        // find the insertion point
+        IntegerNode current = head.getNext();
+        IntegerNode previous = head;
+        while(current != null && current.getData() < value){
+            previous = current;
+            current = current.getNext();
+        }
+        IntegerNode newNode = new IntegerNode(value);
+        newNode.setNext(current);
+        previous.setNext(newNode);
+        size++;
     }
 }

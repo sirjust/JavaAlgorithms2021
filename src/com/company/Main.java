@@ -10,10 +10,11 @@ public class Main {
 
     private static void insertLinkedListSorted(){
         IntegerLinkedList list = new IntegerLinkedList();
-        list.insertSorted(4);
-        list.insertSorted(2);
-        list.insertSorted(1);
-        list.insertSorted(5);
+        list.testInsertSorted(4);
+        list.testInsertSorted(2);
+        list.testInsertSorted(1);
+        list.testInsertSorted(5);
+        list.testInsertSorted(3);
 
         list.printList();
     }
