@@ -3,9 +3,15 @@ package com.company;
 public class Main {
 
     public static void main(String[] args) {
-        // useSorters();
+        useSorters();
         // useLinkedLists();
-        insertLinkedListSorted();
+        // insertLinkedListSorted();
+        // useFactorialCalculator();
+    }
+
+    private static void useFactorialCalculator(){
+        System.out.println(FactorialCalculator.factorialIterative(10));
+        System.out.println(FactorialCalculator.factorialRecursive(10));
     }
 
     private static void insertLinkedListSorted(){
@@ -66,12 +72,15 @@ public class Main {
     private static void useSorters(){
         //test();
         int[] array = new int[] {20, 35, -15, 7, 55, 1, -22};
-        BubbleSorter sorter = new BubbleSorter();
+        // BubbleSorter sorter = new BubbleSorter();
         // SelectionSorter sorter = new SelectionSorter();
         // InsertionSorter sorter = new InsertionSorter();
         // ShellSorter sorter = new ShellSorter();
+        // sorter.mySort(array);
         // sorter.sort(array);
-        sorter.mySort(array);
+        MergeSorter sorter = new MergeSorter();
+        sorter.mergeSort(array, 0, array.length);
+
         printArray(array);
     }
 
