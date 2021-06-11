@@ -12,6 +12,10 @@ public class SelectionSorter {
                 }
             }
             array = swap(array, largest, lastUnsortedIndex);
+
+            char[] myArray = new char[8];
+            //int[] letters = new ;
+            //for(char c : myArray) letters[c]++;
         }
         return array;
     }
