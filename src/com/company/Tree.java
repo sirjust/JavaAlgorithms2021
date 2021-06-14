@@ -17,6 +17,35 @@ public class Tree {
         else return null;
     }
 
+    public void delete(int value){
+        root = delete(root, value);
+    }
+
+    private TreeNode delete(TreeNode subtreeRoot, int value){
+        if(subtreeRoot == null) return subtreeRoot;
+        if(value < subtreeRoot.getData()) subtreeRoot.setLeftChild(delete(subtreeRoot.getLeftChild(), value));
+        else if(value > subtreeRoot.getData()) subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), value));
+        else {
+            // Node to delete has 0 or 1 children
+            if(subtreeRoot.getLeftChild() == null){
+                return subtreeRoot.getRightChild();
+            }
+            else if(subtreeRoot.getRightChild() == null){
+                return subtreeRoot.getLeftChild();
+            }
+            // Node to delete has two children
+            else {
+                // Replace the value in the subtreeRoot node with the smallest value in the right subtree
+                subtreeRoot.setData(subtreeRoot.getRightChild().min());
+
+                // Delete the node that has the smallest value in the right subtree
+                subtreeRoot.setRightChild(delete(subtreeRoot.getRightChild(), subtreeRoot.getData()));
+            }
+        }
+
+        return subtreeRoot;
+    }
+
     public int min(){
         if(root == null) return Integer.MIN_VALUE;
         else return root.min();
@@ -30,6 +59,12 @@ public class Tree {
     public void traverseInOrder(){
         if (root != null){
             root.traverseInOrder();
+        }
+    }
+
+    public void preOrderTraverse(){
+        if (root != null){
+            root.preOrderTraverse();
         }
     }
 }

@@ -60,6 +60,16 @@ public class TreeNode {
         }
     }
 
+    public void preOrderTraverse() {
+        System.out.println("Data = " + data);
+        if(leftChild != null){
+            leftChild.preOrderTraverse();
+        }
+        if(rightChild != null){
+            rightChild.preOrderTraverse();
+        }
+    }
+
     public int getData() {
         return data;
     }

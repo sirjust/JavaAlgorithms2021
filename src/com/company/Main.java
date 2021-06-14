@@ -131,13 +131,28 @@ public class Main {
         intTree.insert(32);
         intTree.insert(17);
 
-        intTree.traverseInOrder();
+        intTree.preOrderTraverse();
 
-        System.out.println(intTree.get(27).getData());
-        System.out.println(intTree.get(17).getData());
-        System.out.println(intTree.get(8888));
+//        intTree.traverseInOrder();
+//        System.out.println();
 
-        System.out.println("Minimum value: " + intTree.min());
-        System.out.println("Maximum value: " + intTree.max());
+//        System.out.println(intTree.get(27).getData());
+//        System.out.println(intTree.get(17).getData());
+//        System.out.println(intTree.get(8888));
+//
+//        System.out.println("Minimum value: " + intTree.min());
+//        System.out.println("Maximum value: " + intTree.max());
+
+//        intTree.delete(15);
+//        intTree.traverseInOrder();
+//        System.out.println();
+//
+//        intTree.delete(27);
+//        intTree.traverseInOrder();
+//        System.out.println();
+//
+//        intTree.delete(25);
+//        intTree.traverseInOrder();
+//        System.out.println();
     }
 }
